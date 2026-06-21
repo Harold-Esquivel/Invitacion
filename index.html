@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Invitación - Baby Shower & Bautismo</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* ===================================
+   CONFIGURACIÓN DE FLORES
+   =================================== */
+
+:root{
+
+    /* Flor izquierda */
+    --flor1-top: 10px;
+    --flor1-left: 10px;
+    --flor1-size: 180px;
+
+    /* Flor derecha */
+    --flor2-top: 10px;
+    --flor2-right: 10px;
+    --flor2-size: 180px;
+
+    /* Flor inferior */
+    --flor3-bottom: 0px;
+    --flor3-left: 5%;
+    --flor3-size: 220px;
+
+    --flor4-bottom: -30px;
+    --flor4-left: 38%;
+    --flor4-size: 190px;
+
+    --flor5-bottom: 0px;
+    --flor5-left: 65%;
+    --flor5-size: 240px;
+}
+
+body{
+    font-family:'Cormorant Garamond', serif;
+
+    background:
+    linear-gradient(
+    135deg,
+    #fdfaf5,
+    #efe7d8
+    );
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:25px;
+}
+
+/* ===================================
+   TARJETA PRINCIPAL
+   =================================== */
+
+.page-container{
+
+    position:relative;
+
+    width:100%;
+    max-width:900px;
+
+    background:
+    linear-gradient(
+    180deg,
+    #fffefb,
+    #faf5eb
+    );
+
+    border:8px solid #d4af37;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 30px 80px rgba(0,0,0,.25),
+    inset 0 0 20px rgba(212,175,55,.25);
+}
+
+/* Fondo decorativo */
+
+.background-pattern{
+    position:absolute;
+    inset:0;
+
+    background:
+    radial-gradient(
+    circle at center,
+    rgba(212,175,55,.08),
+    transparent 70%
+    );
+
+    pointer-events:none;
+}
+
+/* Marco interior */
+
+.gold-frame{
+    position:absolute;
+    inset:20px;
+
+    border:2px solid rgba(212,175,55,.45);
+
+    border-radius:15px;
+
+    pointer-events:none;
+}
+
+/* ===================================
+   ANIMACIONES
+   =================================== */
+
+@keyframes floatFlower{
+
+    0%{
+        transform:translateY(0px) rotate(0deg);
+    }
+
+    50%{
+        transform:translateY(-12px) rotate(4deg);
+    }
+
+    100%{
+        transform:translateY(0px) rotate(0deg);
+    }
+}
+
+@keyframes glow{
+
+    0%,100%{
+        filter:drop-shadow(0 0 5px rgba(255,215,0,.3));
+    }
+
+    50%{
+        filter:drop-shadow(0 0 18px rgba(255,215,0,.8));
+    }
+}
+
+/* ===================================
+   FLORES
+   =================================== */
+
+.flower-image{
+
+    position:absolute;
+
+    object-fit:contain;
+
+    opacity:.75;
+
+    z-index:1;
+
+    animation:
+    floatFlower 6s ease-in-out infinite,
+    glow 4s ease-in-out infinite;
+
+    transition:.5s;
+}
+
+.flower-image:hover{
+    transform:scale(1.08);
+}
+
+.flower-1{
+    top:var(--flor1-top);
+    left:var(--flor1-left);
+    width:var(--flor1-size);
+}
+
+.flower-2{
+    top:var(--flor2-top);
+    right:var(--flor2-right);
+    width:var(--flor2-size);
+    animation-delay:1s;
+}
+
+.flower-3{
+    bottom:var(--flor3-bottom);
+    left:var(--flor3-left);
+
+    width:var(--flor3-size);
+
+    transform:translateX(-110%);
+
+    animation-delay:2s;
+}
+
+.flower-4{
+    bottom:var(--flor4-bottom);
+    left:var(--flor4-left);
+
+    width:var(--flor4-size);
+
+    transform:translateX(-50%);
+
+    animation-delay:2s;
+}
+
+.flower-5{
+    bottom:var(--flor5-bottom);
+    left:var(--flor5-left);
+
+    width:var(--flor5-size);
+
+    transform:translateX(-50%);
+
+    animation-delay:2s;
+}
+
+/* ===================================
+   CONTENIDO
+   =================================== */
+
+.content{
+
+    position:relative;
+
+    z-index:5;
+
+    padding:70px 60px;
+
+    text-align:center;
+}
+
+.decorative-line-top{
+
+    color:#d4af37;
+
+    font-size:22px;
+
+    letter-spacing:12px;
+
+    margin-bottom:15px;
+}
+
+.subtitle{
+
+    color:#8b7355;
+
+    font-style:italic;
+
+    font-size:18px;
+
+    margin-bottom:25px;
+}
+
+.main-title{
+
+    font-family:'Cinzel', serif;
+
+    font-size:42px;
+
+    color:#b8860b;
+
+    letter-spacing:4px;
+
+    text-shadow:
+    0 0 10px rgba(212,175,55,.4),
+    0 0 20px rgba(212,175,55,.2);
+
+    margin-bottom:25px;
+}
+
+.divider{
+
+    width:80%;
+
+    margin:25px auto;
+
+    border-bottom:3px double #d4af37;
+}
+
+.intro-text{
+
+    font-size:24px;
+
+    color:#444;
+
+    margin:25px 0;
+}
+
+.section-header{
+
+    font-size:18px;
+
+    font-style:italic;
+
+    margin-bottom:8px;
+
+    color:#666;
+}
+
+.parents-names{
+
+    font-family:'Cinzel', serif;
+
+    font-size:22px;
+
+    color:#2f4f4f;
+
+    font-weight:bold;
+
+    margin:10px 0;
+}
+
+.connector{
+
+    font-size:22px;
+
+    margin:10px 0;
+
+    color:#b8860b;
+}
+
+.section-title{
+
+    font-family:'Cinzel', serif;
+
+    font-size:24px;
+
+    color:#b8860b;
+
+    margin-top:25px;
+}
+
+.event-title{
+
+    font-size:20px;
+
+    color:#8b7355;
+
+    font-style:italic;
+
+    margin-bottom:15px;
+}
+
+.baby-name{
+
+    font-size:24px;
+
+    font-weight:bold;
+
+    color:#2f4f4f;
+
+    margin:15px 0;
+}
+
+.divider-small{
+
+    margin:20px 0;
+
+    color:#d4af37;
+
+    letter-spacing:6px;
+}
+
+.godmother-label{
+
+    font-style:italic;
+
+    color:#666;
+
+    margin-bottom:8px;
+}
+
+.info-label{
+
+    font-family:'Cinzel', serif;
+
+    color:#2f4f4f;
+
+    font-size:18px;
+
+    margin-top:18px;
+}
+
+.info-value{
+
+    color:#b8860b;
+
+    font-size:24px;
+
+    font-weight:bold;
+
+    margin-bottom:15px;
+}
+
+.closing-message{
+
+    margin-top:20px;
+
+    font-size:18px;
+
+    font-style:italic;
+}
+
+.blessing{
+
+    margin-top:15px;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    color:#2f4f4f;
+}
+
+.signature{
+
+    font-size:30px;
+
+    color:#d4af37;
+
+    margin-top:10px;
+}
+
+.address{
+
+    margin-top:25px;
+
+    font-size:18px;
+
+    color:#8b7355;
+
+    line-height:1.6;
+}
+
+/* ===================================
+   RESPONSIVE
+   =================================== */
+
+@media(max-width:768px){
+
+    .content{
+        padding:40px 25px;
+    }
+
+    .main-title{
+        font-size:28px;
+    }
+
+    .parents-names{
+        font-size:18px;
+    }
+
+    .baby-name{
+        font-size:20px;
+    }
+
+    :root{
+        --flor1-size:120px;
+        --flor2-size:120px;
+        --flor3-size:150px;
+        --flor4-size:100px;
+        --flor5-size:150px;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<div class="page-container">
+
+    <div class="background-pattern"></div>
+    <div class="gold-frame"></div>
+
+    <!-- FLORES -->
+
+    <img src="flor1.png" class="flower-image flower-1">
+
+    <img src="flor2.png" class="flower-image flower-2">
+
+    <img src="flor1.png" class="flower-image flower-3">
+
+    <img src="flor2.png" class="flower-image flower-4">
+
+    <img src="flor1.png" class="flower-image flower-5">
+
+    <!-- CONTENIDO -->
+
+    <div class="content">
+
+        <div class="decorative-line-top">✦ ✦ ✦</div>
+
+        <div class="subtitle">
+            Por la Gracia de Dios y la Fortuna de la Familia
+        </div>
+
+        <div class="main-title">
+            SE HACE CORDIAL INVITACIÓN
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="intro-text">
+            A toda la nobleza y allegados de esta casa
+        </div>
+
+        <div class="section-header">Los Señores</div>
+
+        <div class="parents-names">
+            ADELA HUMPIRE JALA
+        </div>
+
+        <div class="connector">Y</div>
+
+        <div class="parents-names">
+            ATNER MAQQUE MAMANI
+        </div>
+
+        <div class="divider-small">✦ ✦ ✦</div>
+
+        <div class="section-title">
+            CELEBRACIÓN DE BIENVENIDA
+        </div>
+
+        <div class="event-title">
+            Baby Shower
+        </div>
+
+        <div class="section-header">
+            En honor a la llegada de
+        </div>
+
+        <div class="baby-name">
+            VIOLETS JAZMIN MAQQUE HUMPIRE
+        </div>
+
+        <div class="divider-small">~ ~ ~</div>
+
+        <div class="section-title">
+            CEREMONIA DE BENDICIÓN SAGRADA
+        </div>
+
+        <div class="event-title">
+            Bautismo
+        </div>
+
+        <div class="section-header">
+            De la bautizada
+        </div>
+
+        <div class="baby-name">
+            YAMILETH SAYUMI MAQQUE HUMPIRE
+        </div>
+
+        <div class="godmother-label">
+            Bajo la madrina
+        </div>
+
+        <div class="parents-names">
+            ERICKA JADHIRE GARCÍA COAGUILA
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="info-label">
+            FECHA DEL EVENTO
+        </div>
+
+        <div class="info-value">
+            27 de Junio del Año 2026
+        </div>
+
+        <div class="info-label">
+            HORA
+        </div>
+
+        <div class="info-value">
+            14:00 hrs
+        </div>
+
+        <div class="divider-small">
+            ✦ ✦ ✦
+        </div>
+
+        <div class="closing-message">
+            Se ruega confirmación de asistencia
+        </div>
+
+        <div class="blessing">
+            Que Dios Bendiga Esta Celebración
+        </div>
+
+        <div class="signature">
+            ✦
+        </div>
+
+        <div class="address">
+            Villa con Faternidad M.S<br>
+            Lote 3
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
